@@ -94,19 +94,15 @@ export default function Footer() {
 
               {/* Three Cards Section */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                
+                {/* Card 2: Quality To Die For */}
                 <div className="group">
                   
+                  <h3 className="text-5xl font-bold mb-4 ml-10 font-[sofia]">
+                    PRESSON
+                  </h3>
                   
-                 <Image
-                      src="/logo-01.jpg"
-                      alt="Adventure"
-                      className="w-3/4 h-50 object-cover pb-5"
-                      width={300}
-                      height={150}
-                      />
                 </div>
-
-                {/* Card 2: Quality To Die For */}
                 <div className="group">
                   
                   <h3 className="text-normal font-bold mb-4 ml-10 font-[sofia]">
