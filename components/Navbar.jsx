@@ -163,7 +163,7 @@ const Navbar = () => {
           >
             BRIDGEWATER JOY RESIDENCE
           </Link>
-          
+
           <Link
             href="/PLEASANTVIEW_GEM_INN"
             onClick={handleMenu}
