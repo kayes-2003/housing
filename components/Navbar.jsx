@@ -1,57 +1,197 @@
 "use client";
 
+import React, { useState } from "react";
 import Link from "next/link";
-// import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
-export default function Navbar() {
-  // const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [ProjectOpen, setProjectOpen] = useState(false);
+  const [mobileProjectOpen, setMobileProjectOpen] = useState(false);
+
+  const pathname = usePathname();
+
+  const handleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   return (
-    <header className="fixed top-0 left-0 w-full flex justify-between items-center px-6 md:px-16 lg:px-24 py-8 text-white z-50">
-      
-      {/* Logo */}
-      <h1 className="text-3xl font-bold tracking-wider">
-        <Link href="/" className="hover:text-gray-300 transition-colors duration-200">
-          PRESSON
+    <nav className="w-full fixed z-50 bg-transparent  shadow-xl h-20 flex items-center px-6">
+      <div className="flex items-center justify-between w-full">
+
+        {/* Logo */}
+        <Link href="/">
+        <h1 className="text-3xl font-bold tracking-wider">
+        <Link href="/" className="hover:text-gray-600 font-[sofia] uppercase transition-colors duration-200 text-white">
+         Propel
         </Link>
       </h1>
-
-      {/* Navigation */}
-      {/* <nav className="flex items-center space-x-8 text-sm tracking-wide"> */}
-
-        <nav class=" right-0 text-balance top-0 z-50 flex items-center space-x-8 tracking-wide bg-transperant p-4 transition-colors bg-none duration-300">
-        <Link
-          href="/knowUs"
-          className="hover:text-gray-300  focus:outline-black active:drop-shadow-mauve-950 transition-colors duration-200"
-        >
-          About Us
+          
         </Link>
 
-        {/* Services Dropdown */}
+        {/* Desktop Menu */}
+        <ul className="hidden sm:flex gap-10 text-lg font-medium  items-center">
 
-  <ul class="flex space-x-4">
-    <li class="group relative">
-      <a href="#" className="rounded-md px-3 py-2 text-white "> Projects </a>
 
-      <div class="absolute z-50 hidden pt-2 group-hover:flex">
-        <div class="w-80 rounded-md border border-gray-200 bg-white opacity-0 shadow-lg transition-opacity duration-300 group-hover:opacity-100">
-          <a href="/SUNSHINE_BAY_RESIDENCE" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">SUNSHINE BAY RESIDENCE </a>
-          <a href="/bridgewater_joy_residance" class="block px-4 py-2 text-gray-800 hover:bg-gray-100"> BRIDGEWATER JOY RESIDENCE </a>
-          <a href="/PLEASANTVIEW_GEM_INN" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">PLEASANTVIEW GEM INN </a>
+
+          {/* Project Dropdown */}
+          <li className="relative">
+            <button
+              onClick={() => setProjectOpen(!ProjectOpen)}
+              className="flex items-center gap-1 px-3 py-2"
+            >
+              Our Projects
+              <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M5.23 7.21L10 10.94l3.71-3.71 1.06 1.06-4.24 4.24-4.24-4.24z" />
+              </svg>
+            </button>
+
+            {ProjectOpen && (
+              <div className="absolute left-0 mt-2 w-80 rounded-md border-2 bg-transparent shadow-lg">
+                <Link
+                  href="/SUNSHINE_BAY_RESIDENCE"
+                  onClick={() => setProjectOpen(false)}
+                  className={`block px-4 py-2 hover:bg-gray-500 ${
+                    pathname === "/SUNSHINE_BAY_RESIDENCE" ? "underline underline-offset-4" : ""
+                  }`}
+                >
+                  SUNSHINE BAY RESIDENCE
+                </Link>
+
+                <Link
+                  href="/BRIDGEWATER_JOY_RESIDANCE"
+                  onClick={() => setProjectOpen(false)}
+                  className={`block px-4 py-2 hover:bg-gray-500 ${
+                    pathname === "/BRIDGEWATER_JOY_RESIDENCE" ? "underline underline-offset-4" : ""
+                  }`}
+                >
+                  BRIDGEWATER JOY RESIDENCE
+                </Link>
+
+                <Link
+                  href="/PLEASANTVIEW_GEM_INN"
+                  onClick={() => setProjectOpen(false)}
+                  className={`block px-4 py-2 hover:bg-gray-500 ${
+                    pathname === "/PLEASANTVIEW_GEM_INN" ? "underline underline-offset-4" : ""
+                  }`}
+                >
+                  PLEASANTVIEW GEM INN
+                </Link>
+              </div>
+            )}
+          </li>
+
+          {/* Other Links */}
+          
+          <Link href="/knowUs">
+            <li className={`cursor-pointer hover:text-blue-600 ${
+              pathname === "/knowUs" ? "underline underline-offset-4" : ""
+            }`}>
+          About Us
+          </li>
+        </Link>
+        
+          <Link href="/contact">
+            <li className={`cursor-pointer hover:text-blue-600 ${
+              pathname === "/contact" ? "underline underline-offset-4" : ""
+            }`}>
+              Contact
+            </li>
+          </Link>
+        </ul>
+
+
+
+
+
+        {/* Mobile Hamburger Icon */}
+        <div className="sm:hidden">
+          <AiOutlineMenu
+            onClick={handleMenu}
+            className="text-2xl cursor-pointer text-white"
+          />
         </div>
       </div>
-    </li>
-  </ul>
-      
 
-        <Link
-          href="/contact"
-          className="hover:text-gray-300  transition-colors duration-200"
+      {/* Mobile Menu */}
+<div
+  className={
+    menuOpen
+      ? "fixed left-0 top-0 w-[65%] h-screen bg-white ease-in duration-500 flex flex-col z-50"
+      : "hidden"
+  }
+>
+  <div className="flex justify-end items-center p-6">
+    <AiOutlineClose
+      onClick={handleMenu}
+      className="text-2xl text-black cursor-pointer"
+    />
+  </div>
+
+  <ul className="flex flex-col justify-center items-start mt-10 gap-6 px-6">
+    {/* Project with dropdown */}
+    <li className="w-full">
+      <button
+        onClick={() => setMobileProjectOpen(!mobileProjectOpen)}
+        className="flex justify-between items-center w-full text-xl text-black"
+      >
+        Our Projects
+        <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M5.23 7.21L10 10.94l3.71-3.71 1.06 1.06-4.24 4.24-4.24-4.24z" />
+              </svg>
+        {/* <span>{mobileProjectOpen ? "▲" : "▼"}</span> */}
+      </button>
+      {mobileProjectOpen && (
+        <div className="mt-2 flex flex-col  rounded-md shadow-lg">
+          <Link
+            href="/SUNSHINE_BAY_RESIDENCE"
+            onClick={handleMenu}
+            className={`px-4 py-2 text-black hover:text-black hover:underline hover:bg-amber-100 ${
+              pathname === "/SUNSHINE_BAY_RESIDENCE" ? "" : ""
+            }`}
           >
-          Contact
-        </Link>
-          </nav>
-      {/* </nav> */}
-    </header>
-  );
-}
+            SUNSHINE BAY RESIDENCE
+          </Link>
+          <Link
+            href="/BRIDGEWATER_JOY_RESIDANCE"
+            onClick={handleMenu}
+            className={`px-4 py-2 text-black hover:text-black hover:underline hover:bg-amber-100 ${
+              pathname === "/BRIDGEWATER_JOY_RESIDANCE" ? "underline underline-offset-4" : ""
+            }`}
+          >
+            BRIDGEWATER JOY RESIDENCE
+          </Link>
+          <Link
+            href="/PLEASANTVIEW_GEM_INN"
+            onClick={handleMenu}
+            className={`px-4 py-2 text-black hover:text-black hover:underline hover:bg-amber-100 ${
+              pathname === "/PLEASANTVIEW_GEM_INN" ? "underline underline-offset-4" : ""
+            }`}
+          >
+            PLEASANTVIEW GEM INN
+          </Link>
+        </div>
+      )}
+    </li>
+
+    
+    <Link href="/knowUs" onClick={handleMenu}>
+      <li className="text-xl text-black hover:underline">About</li>
+    </Link>
+    <Link href="/contact" onClick={handleMenu}>
+      <li className="text-xl text-black hover:underline">Contact</li>
+    </Link>
+    
+  </ul>
+</div>
+
+
+
+    </nav>
+  )
+;
+};
+
+export default Navbar;

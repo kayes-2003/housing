@@ -1,80 +1,53 @@
 import React from 'react';
-import Footer from "@/components/Footer";
-
 
 export default function HomePage() {
   return (
-    <main className="text-white h-full w-full bg-cover pt-52 z-0 absolute">
-
+    <main className="text-white w-full bg-cover relative">
+      {/* Background */}
       <section
-        className="absolute inset-0 w-full h-full bg-cover bg-center z-0"
+        className="absolute inset-0 w-full h-full bg-cover bg-center"
         style={{
-    backgroundImage: "url('/interior-11.jpg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
+          backgroundImage: "url('/interior-11.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
-        />
-
+      />
       <div className="absolute inset-0 bg-black/30 z-10" />
 
-      {/* Content container */}
-      <div className="relative z-20 flex flex-col items-start justify-center h-full px-6 md:px-16 lg:px-24 text-white gap-15 text-center">
-        
-        
-
-        <h1 className="text-9xl sm:text-6xl md:text-7xl lg:text-9xl font-bold leading-tight text-center font-[sofia]">
+      {/* Content */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-screen px-6 md:px-16 lg:px-24 text-white gap-8 text-center">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-bold leading-tight font-[sofia]">
           CONTACT US
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 ml-100">
-                
+        {/* Contact Info Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full max-w-4xl bg-white/30">
+          {/* Contacts */}
+          <div className="group text-center text-white">
+            <h3 className="text-lg md:text-xl font-bold mb-4 font-[sofia]">
+              CONTACTS
+            </h3>
+            <div className=" leading-relaxed">
+              <p>email@example.com</p>
+              <p>880123456789</p>
+            </div>
+          </div>
 
-                {/* Card 2: Quality To Die For */}
-                <div className="group">
-                  
-                  <h3 className="text-normal font-bold mb-4 ml-10 font-[sofia]">
-                    CONTACTS
-                  </h3>
-                  <div className="text-white leading-relaxed ml-10">
-                   <p>email@example.com</p>
-                    <p>880123456789</p>
-
-                  </div>
-                  
-                </div>
-
-                {/* Card 3: Visionaries of The Future */}
-                <div className="group">
-                  
-                  <h3 className="text-normal  font-bold mb-4 font-[sofia]">
-                    ADDRESS
-                  </h3>
-                  <div className="text-white leading-relaxed">
-                   <p>123 your street name, </p>
-                    <p>City name, Country, post code </p>
-                    
-                  </div>
-                  
-                </div>
-              </div>
-        
-
-        {/* Optional subtle divider or accent (adds a modern touch) */}
-        <div className="w-16 h-2 bg-white/80 mb-8" />
-
+          {/* Address */}
+          <div className="group text-center text-white">
+            <h3 className="text-lg md:text-xl font-bold mb-4 font-[sofia]">
+              ADDRESS
+            </h3>
+            <div className=" leading-relaxed">
+              <p>123 Your Street Name</p>
+              <p>City Name, Country, Post Code</p>
+            </div>
+          </div>
         </div>
 
-              
-
-
-<Footer/>
-
-
-
-
-
-       
-
+        {/* Divider */}
+        <div className="w-16 h-1 bg-white/80 mt-8" />
+      </div>
     </main>
   );
 }
