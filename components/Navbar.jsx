@@ -61,10 +61,10 @@ const Navbar = () => {
                 </Link>
 
                 <Link
-                  href="/BRIDGEWATER_JOY_RESIDANCE"
+                  href="/bridgrwater_joy_residance"
                   onClick={() => setProjectOpen(false)}
                   className={`block px-4 py-2 hover:bg-gray-500 ${
-                    pathname === "/BRIDGEWATER_JOY_RESIDANCE" ? "underline underline-offset-4" : ""
+                    pathname === "/bridgrwater_joy_residance" ? "underline underline-offset-4" : ""
                   }`}
                 >
                   BRIDGEWATER JOY RESIDENCE
