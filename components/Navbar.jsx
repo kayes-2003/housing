@@ -155,14 +155,15 @@ const Navbar = () => {
             SUNSHINE BAY RESIDENCE
           </Link>
           <Link
-            href="/BRIDGEWATER_JOY_RESIDANCE"
+            href="/bridgrwater_joy_residance"
             onClick={handleMenu}
             className={`px-4 py-2 text-black hover:text-black hover:underline hover:bg-amber-100 ${
-              pathname === "/BRIDGEWATER_JOY_RESIDANCE" ? "underline underline-offset-4" : ""
+              pathname === "/bridgrwater_joy_residance" ? "underline underline-offset-4" : ""
             }`}
           >
             BRIDGEWATER JOY RESIDENCE
           </Link>
+          
           <Link
             href="/PLEASANTVIEW_GEM_INN"
             onClick={handleMenu}
