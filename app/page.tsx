@@ -21,7 +21,7 @@ export default function HomePage() {
           Time to meet your
         </p>
         <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-bold mb-6 leading-tight font-[sofia]">
-          NEW HOME
+          None
         </h1>
         <p className="max-w-md md:max-w-lg text-sm sm:text-base md:text-lg font-light leading-relaxed">
           Finding the perfect place to call home can be hard. Our team of
